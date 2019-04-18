@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified"
+           elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+           jxb:version="2.1">
+    <xs:annotation>
+        <xs:appinfo>
+            <jaxb:bindings xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+                           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                    <jaxb:bindings node="//xs:element[@name='API_Reply']/xs:complexType/xs:sequence/xs:element[@name='Product']/xs:complexType/xs:sequence/xs:element[@name='base_product']">
+                        <jaxb:factoryMethod name="TargetBaseProduct"/>
+                    </jaxb:bindings>
+            </jaxb:bindings>
+        </xs:appinfo>
+    </xs:annotation>
+    <xs:element name="API_Reply">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Product">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="child" type="xs:string" />
+                            <xs:element name="type" type="xs:unsignedByte" />
+                            <xs:element name="name" type="xs:string" />
+                            <xs:element name="parent" type="xs:string" />
+                            <xs:element name="archived" type="xs:unsignedByte" />
+                            <xs:element name="lang_en_archived" type="xs:unsignedByte" />
+                            <xs:element name="ghost" type="xs:unsignedByte" />
+                            <xs:element name="baseProduct" type="xs:string" />
+                            <xs:element name="is_noncancellable" type="xs:unsignedByte" />
+                            <xs:element name="tripappaddonname" type="xs:string" />
+                            <xs:element name="description" type="xs:string" />
+                            <xs:element name="extra_information" type="xs:string" />
+                            <xs:element name="book_for_following_day" type="xs:unsignedByte" />
+                            <xs:element name="supplement_group_title" type="xs:string" />
+                            <xs:element name="supplement_sub_type" type="xs:string" />
+                            <xs:element name="supplement_type" type="xs:string" />
+                            <xs:element name="tripappaddonimages" type="xs:string" />
+                            <xs:element name="access_pass_image" type="xs:string" />
+                            <xs:element name="add_on_image" type="xs:string" />
+                            <xs:element name="busy_period_upsell_description" type="xs:string" />
+                            <xs:element name="important_information" type="xs:string" />
+                            <xs:element name="upsell_modal_image" type="xs:string" />
+                            <xs:element name="secondary_supplier" type="xs:unsignedByte" />
+                            <xs:element name="logo" type="xs:string" />
+                            <xs:element name="payment_modal_cta" type="xs:string" />
+                            <xs:element name="payment_modal_description" type="xs:string" />
+                            <xs:element name="priority" type="xs:unsignedShort" />
+                            <xs:element name="tripappaddonsellpoint" type="xs:string" />
+                            <xs:element name="upgrade_sellpoint_one" type="xs:string" />
+                            <xs:element name="unnamed" />
+                            <xs:element name="base_product" type="xs:string" />
+                            <xs:element name="lang" type="xs:string" />
+                            <xs:element name="accessible" type="xs:unsignedByte" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="API_Header">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Request">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="key" type="xs:unsignedByte" />
+                                        <xs:element name="v" type="xs:unsignedByte" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="Result" type="xs:string" use="required" />
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
