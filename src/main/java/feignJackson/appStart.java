@@ -4,6 +4,7 @@ import feign.Feign;
 import feign.jaxb.JAXBContextFactory;
 import feign.jaxb.JAXBDecoder;
 import feign.jaxb.JAXBEncoder;
+import feign.okhttp.OkHttpClient;
 
 public class appStart {
 
@@ -14,10 +15,19 @@ public class appStart {
                 .build();
 
         testClient t = Feign.builder()
+                .client(new OkHttpClient())
                 .encoder(new JAXBEncoder(jaxbFactory))
                 .decoder(new JAXBDecoder(jaxbFactory))
-                .target(testClient.class, "https://api.holidayextras.co.uk//v1/product/MANFT1?key=1");
-        System.out.println(t.get().getProduct().getContent().get(1).getValue());
+                .target(testClient.class, "https://api.holidayextras.co.uk//v1/product");
+
+
+        String Manchester = "MANFT1";
+        String Edinburgh = "EDIFT1";
+        String Leeds = "LBAFT1";
+        String key = "key";
+        System.out.println(t.get(Manchester, key).getProduct().getContent().get(3).getValue());
+        System.out.println(t.get(Edinburgh, key).getProduct().getContent().get(3).getValue());
+        System.out.println(t.get(Leeds, key).getProduct().getContent().get(3).getValue());
     }
 
 }
